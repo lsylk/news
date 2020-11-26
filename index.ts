@@ -84,6 +84,8 @@ app.get("/:lang/search", (req, res) => {
     console.log(req.query.q)
 })
 
+// app.route method it is used for grouping purposes example have many routes within one specific path.
+
 
 app.listen(4000);
 
