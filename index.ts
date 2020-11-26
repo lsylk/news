@@ -84,7 +84,12 @@ app.get("/:lang/search", (req, res) => {
     console.log(req.query.q)
 })
 
+// res.end() to end the response, if sending data use res.send()
 // app.route method it is used for grouping purposes example have many routes within one specific path.
+// mention middlewares... 
+// Helmet helps you secure your Express apps by setting various HTTP headers. It's not a silver bullet, but it can help!
+
+
 
 
 app.listen(4000);
