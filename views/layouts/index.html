@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+
+        <script> 
+            const search = async() => {
+                const searchBar = document.querySelector("#search");
+                const data = {query:searchBar.value};
+                console.log(searchBar.value);
+                const response = await fetch("/search", {method: "POST", headers:{"Content-Type": "application/json"}, body:JSON.stringify(data)});
+                const results = await response.json();
+
+                results.articles.forEach(article => {
+                    const p = document.createElement("p");
+                    p.innerText= article.title;
+
+
+                    const a = document.createElement("a");
+                    a.href = article.url;
+
+                    a.appendChild(p);
+
+                    document.body.append(a);
+
+                });
+            }; 
+        </script>
+    </head>
+    <body>
+        <input id="search" type="text"> <button onClick="search()">Search</button>
+        <script src="" async defer></script>
+    </body>
+</html>
